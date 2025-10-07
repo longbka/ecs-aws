@@ -14,7 +14,7 @@ app.get("/email", (req, res) => {
 
   console.log("Hello user!");
   res.json({
-    serviceName: "LONGAWS ECS Email Microservice",
+    serviceName: "LONGAWS ECS Email Microservice V2",
     clientIp,
     elbIp,
     containerIp,
