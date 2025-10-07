@@ -14,9 +14,11 @@ phases:
       - aws --version
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 429744659573.dkr.ecr.us-east-1.amazonaws.com
       - REPOSITORY_URI=429744659573.dkr.ecr.us-east-1.amazonaws.com/ecs-simple
+      - export REPOSITORY_URI
       # please update [AWS_ACCOUNT_ID] & [REPO_NAME] & AWS_REGION based on your setup
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - export IMAGE_TAG
   build:
     commands:
       - echo Build started on `date`
